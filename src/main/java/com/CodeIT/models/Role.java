@@ -12,8 +12,7 @@ public class Role implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @OneToOne(mappedBy = "address")
-    private String role;
+
 }
 
 // https://www.baeldung.com/jpa-one-to-one

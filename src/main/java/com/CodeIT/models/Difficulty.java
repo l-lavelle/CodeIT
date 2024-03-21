@@ -7,18 +7,18 @@ import java.util.Objects;
 
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-@Table(name="language")
-public class Language implements Serializable{
+@Table(name="difficulty")
+public class Difficulty implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    private String languageType;
+    private String difficultyType;
 
 
-    public Language(Integer id, String languageType) {
+    public Difficulty(Integer id, String difficultyType) {
         this.id = id;
-        this.languageType = languageType;
+        this.difficultyType = difficultyType;
     }
 
     public Integer getId() {
@@ -29,32 +29,32 @@ public class Language implements Serializable{
         this.id = id;
     }
 
-    public String getLanguageType() {
-        return languageType;
+    public String getDifficultyType() {
+        return difficultyType;
     }
 
-    public void setLanguageType(String languageType) {
-        this.languageType = languageType;
+    public void setDifficultyType(String difficultyType) {
+        this.difficultyType = difficultyType;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Language language = (Language) o;
-        return Objects.equals(id, language.id) && Objects.equals(languageType, language.languageType);
+        Difficulty that = (Difficulty) o;
+        return Objects.equals(id, that.id) && Objects.equals(difficultyType, that.difficultyType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, languageType);
+        return Objects.hash(id, difficultyType);
     }
 
     @Override
     public String toString() {
-        return "Language{" +
+        return "Difficulty{" +
                 "id=" + id +
-                ", languageType='" + languageType + '\'' +
+                ", difficultyType='" + difficultyType + '\'' +
                 '}';
     }
 }

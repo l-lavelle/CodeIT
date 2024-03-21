@@ -3,10 +3,6 @@ package com.CodeIT.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.io.Serializable;
-import java.util.List;
-import java.util.Objects;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -26,8 +22,7 @@ public class User implements Serializable{
     private String password;
 
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "role_Id", referencedColumnName = "id")
-    private Integer role_Id;
+
 }
 
+//Do need a role if using session??
