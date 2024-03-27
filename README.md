@@ -47,4 +47,5 @@ The following websites were used for reference to create this application:<br />
 - Resources for continued learning
 - Coding games
 - Turn Figaro (Mascot) into chatbot for help
-
+- Admin page to create, manage, and delete questions
+  - Able to monitor website stats 

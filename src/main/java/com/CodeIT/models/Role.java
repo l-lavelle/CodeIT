@@ -15,4 +15,3 @@ public class Role implements Serializable {
 
 }
 
-// https://www.baeldung.com/jpa-one-to-one

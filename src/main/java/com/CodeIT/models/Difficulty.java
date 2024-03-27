@@ -3,6 +3,7 @@ package com.CodeIT.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -10,31 +11,36 @@ import java.util.Objects;
 @Table(name="difficulty")
 public class Difficulty implements Serializable{
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Integer difficulty_id;
 
-    private String difficultyType;
+    private String difficulty_type;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "difficulty", cascade = CascadeType.ALL)
+    private List<Questions> questionsList;
 
-    public Difficulty(Integer id, String difficultyType) {
-        this.id = id;
-        this.difficultyType = difficultyType;
+    public Difficulty(){
+
     }
 
-    public Integer getId() {
-        return id;
+    public Difficulty(Integer difficulty_id, String difficulty_type) {
+        this.difficulty_id = difficulty_id;
+        this.difficulty_type = difficulty_type;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public Integer getDifficulty_id() {
+        return difficulty_id;
     }
 
-    public String getDifficultyType() {
-        return difficultyType;
+    public void setDifficulty_id(Integer difficulty_id) {
+        this.difficulty_id = difficulty_id;
     }
 
-    public void setDifficultyType(String difficultyType) {
-        this.difficultyType = difficultyType;
+    public String getDifficulty_type() {
+        return difficulty_type;
+    }
+
+    public void setDifficulty_type(String difficulty_type) {
+        this.difficulty_type = difficulty_type;
     }
 
     @Override
@@ -42,19 +48,19 @@ public class Difficulty implements Serializable{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Difficulty that = (Difficulty) o;
-        return Objects.equals(id, that.id) && Objects.equals(difficultyType, that.difficultyType);
+        return Objects.equals(difficulty_id, that.difficulty_id) && Objects.equals(difficulty_type, that.difficulty_type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, difficultyType);
+        return Objects.hash(difficulty_id, difficulty_type);
     }
 
     @Override
     public String toString() {
         return "Difficulty{" +
-                "id=" + id +
-                ", difficultyType='" + difficultyType + '\'' +
+                "difficulty_id=" + difficulty_id +
+                ", difficulty_type='" + difficulty_type + '\'' +
                 '}';
     }
 }
