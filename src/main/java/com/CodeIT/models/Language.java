@@ -10,7 +10,6 @@ import java.util.Objects;
 @Table(name="language")
 public class Language implements Serializable{
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     private String language_type;

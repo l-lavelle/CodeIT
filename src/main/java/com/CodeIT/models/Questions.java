@@ -23,15 +23,15 @@ public class Questions implements Serializable {
     @JoinColumn(name = "difficulty_id")
     private Difficulty difficulty;
 
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "language_id")
-//    private Language language;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "language_id")
+    private Language language;
 
     public Questions(){
 
     }
 
-    public Questions(Integer id, String name, String question, String answer, String hints, String solution, Difficulty difficulty) {
+    public Questions(Integer id, String name, String question, String answer, String hints, String solution, Difficulty difficulty, Language language) {
         this.id = id;
         this.name = name;
         this.question = question;
@@ -39,6 +39,7 @@ public class Questions implements Serializable {
         this.hints = hints;
         this.solution = solution;
         this.difficulty = difficulty;
+        this.language = language;
     }
 
     public Integer getId() {
@@ -97,18 +98,25 @@ public class Questions implements Serializable {
         this.difficulty = difficulty;
     }
 
+    public Language getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(Language language) {
+        this.language = language;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Questions questions = (Questions) o;
-        return Objects.equals(id, questions.id) && Objects.equals(name, questions.name) && Objects.equals(question, questions.question) && Objects.equals(answer, questions.answer) && Objects.equals(hints, questions.hints) && Objects.equals(solution, questions.solution) && Objects.equals(difficulty, questions.difficulty);
+        return Objects.equals(id, questions.id) && Objects.equals(name, questions.name) && Objects.equals(question, questions.question) && Objects.equals(answer, questions.answer) && Objects.equals(hints, questions.hints) && Objects.equals(solution, questions.solution) && Objects.equals(difficulty, questions.difficulty) && Objects.equals(language, questions.language);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, question, answer, hints, solution, difficulty);
+        return Objects.hash(id, name, question, answer, hints, solution, difficulty, language);
     }
 
     @Override
@@ -121,6 +129,7 @@ public class Questions implements Serializable {
                 ", hints='" + hints + '\'' +
                 ", solution='" + solution + '\'' +
                 ", difficulty=" + difficulty +
+                ", language=" + language +
                 '}';
     }
 }
