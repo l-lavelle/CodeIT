@@ -21,14 +21,17 @@ public class User implements Serializable{
     @Column(unique=true)
     private String username;
 
-// Need upper, lower, and number- check
-    @Size(min = 5, max = 40, message="Password needs to be between 5 and 40 characters")
-    @Pattern(regexp = "(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]", message = "Needs to contain uppercase, lowercase, and a number")
+    @Column(length = 264)
+    @Size(min = 5, message="Password needs to be at least 5 characters")
+//    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$", message = "Needs to contain uppercase, lowercase, and a number")
     private String password;
 
     @Transient
     boolean loggedIn;
 
+    public User(){
+
+    }
     public User(Integer id, String username, String password, boolean loggedIn) {
 
         this.id = id;
@@ -93,4 +96,3 @@ public class User implements Serializable{
     }
 }
 
-/* TODO: Do need a role if using session?? */
