@@ -3,8 +3,10 @@
 package com.CodeIT.controller;
 
 import com.CodeIT.models.Difficulty;
+import com.CodeIT.models.Language;
 import com.CodeIT.models.Questions;
 import com.CodeIT.repository.DifficultyRepository;
+import com.CodeIT.repository.LanguageRepository;
 import com.CodeIT.repository.QuestionsRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,13 +24,25 @@ public class QuestionsController {
     @Autowired
     DifficultyRepository difficultyRepository;
 
+    @Autowired
+    LanguageRepository languageRepository;
+
 //    needs to pull difficulty_id
     @GetMapping("/api/questions")
     public List<Questions> getAllQuestions() {
-
         List<Questions> questionsList = questionsrepository.findAll();
         return questionsList;
     }
+    @GetMapping("/api/questions/{language_id}")
+    public List<Questions> getQuestionsByLanguage(@PathVariable Integer language_id) {
+
+//        List<Questions> returnQuestions = questionsrepository.getQuestionsByLanguage(language_id);
+
+//        return returnQuestions;
+        return null;
+    }
+
+
 //    @GetMapping("/api/posts/{id}")
 //    public Post getPost(@PathVariable Integer id) {
 //        Post returnPost = repository.getReferenceById(id);

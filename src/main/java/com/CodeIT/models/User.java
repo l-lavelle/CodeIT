@@ -21,8 +21,9 @@ public class User implements Serializable{
     @Size(min = 5, max = 40, message="password needs to be between 5 and 40 characters")
     private String password;
 
-
+    @Transient
+    boolean loggedIn;
 
 }
 
-//Do need a role if using session??
+/* TODO: Do need a role if using session?? */

@@ -10,15 +10,16 @@ import java.util.Objects;
 @Table(name="language")
 public class Language implements Serializable{
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    private String languageType;
+    private String language_type;
 
+    public Language(){
 
-    public Language(Integer id, String languageType) {
+    }
+    public Language(Integer id, String language_type) {
         this.id = id;
-        this.languageType = languageType;
+        this.language_type = language_type;
     }
 
     public Integer getId() {
@@ -29,12 +30,12 @@ public class Language implements Serializable{
         this.id = id;
     }
 
-    public String getLanguageType() {
-        return languageType;
+    public String getLanguage_type() {
+        return language_type;
     }
 
-    public void setLanguageType(String languageType) {
-        this.languageType = languageType;
+    public void setLanguage_type(String language_type) {
+        this.language_type = language_type;
     }
 
     @Override
@@ -42,19 +43,19 @@ public class Language implements Serializable{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Language language = (Language) o;
-        return Objects.equals(id, language.id) && Objects.equals(languageType, language.languageType);
+        return Objects.equals(id, language.id) && Objects.equals(language_type, language.language_type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, languageType);
+        return Objects.hash(id, language_type);
     }
 
     @Override
     public String toString() {
         return "Language{" +
                 "id=" + id +
-                ", languageType='" + languageType + '\'' +
+                ", language_type='" + language_type + '\'' +
                 '}';
     }
 }
