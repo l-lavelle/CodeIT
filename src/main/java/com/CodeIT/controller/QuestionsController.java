@@ -33,14 +33,14 @@ public class QuestionsController {
         List<Questions> questionsList = questionsrepository.findAll();
         return questionsList;
     }
-    @GetMapping("/api/questions/{language_id}")
-    public List<Questions> getQuestionsByLanguage(@PathVariable Integer language_id) {
-
-//        List<Questions> returnQuestions = questionsrepository.getQuestionsByLanguage(language_id);
-
-//        return returnQuestions;
-        return null;
-    }
+//    @GetMapping("/api/questions/{language_id}")
+//    public List<Questions> getQuestionsByLanguage(@PathVariable Integer language_id) {
+//
+////        List<Questions> returnQuestions = questionsrepository.getQuestionsByLanguage(language_id);
+//
+////        return returnQuestions;
+//        return null;
+//    }
 
 
 //    @GetMapping("/api/posts/{id}")
@@ -56,8 +56,8 @@ public class QuestionsController {
     public Questions addQuestions(@RequestBody Questions questions) {
 //        Difficulty difficulty = difficultyRepository.getReferenceById(1);
 
-        Questions questiontemp = new Questions();
-        questiontemp.setName(questions.getName());
+//        Questions questiontemp = new Questions();
+//        questiontemp.setName(questions.getName());
 
 //        Difficulty difficultytemp = questions.getDifficulty().;
 //        questiontemp.setDifficulty(difficulty);

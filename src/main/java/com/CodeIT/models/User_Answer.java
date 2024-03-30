@@ -5,4 +5,5 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 
 public class User_Answer {
+
 }
