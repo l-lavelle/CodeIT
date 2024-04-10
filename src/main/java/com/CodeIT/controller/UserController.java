@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
+import java.util.regex.*;
 import java.util.List;
 
 @RestController
@@ -25,10 +25,17 @@ public class UserController {
     }
 
     @PostMapping("/api/users")
-    public User addUser(@RequestBody User user) {
-        // Encrypt password
-        user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
-        userRepository.save(user);
-        return user;
+    public User addUser(@RequestBody User user) throws Exception{
+        boolean b2=Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$").matcher(user.getPassword()).matches();
+//        System.out.println(b2);
+
+        // Encrypt password if matches regex validation
+        if (b2){
+            user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
+            userRepository.save(user);
+            return user;
+        } else {
+            throw new Exception("Password needs to contain lowercase letter, uppercase letter, and number");
+        }
     }
 }

@@ -23,7 +23,6 @@ public class User implements Serializable{
 
     @Column(length = 264)
     @Size(min = 5, message="Password needs to be at least 5 characters")
-//    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$", message = "Needs to contain uppercase, lowercase, and a number")
     private String password;
 
     @Transient
