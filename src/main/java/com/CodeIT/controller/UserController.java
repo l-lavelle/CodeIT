@@ -27,7 +27,7 @@ public class UserController {
     @PostMapping("/api/users")
     public User addUser(@RequestBody User user) throws Exception{
         boolean b2=Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$").matcher(user.getPassword()).matches();
-//        System.out.println(b2);
+        //System.out.println(b2);
 
         // Encrypt password if matches regex validation
         if (b2){
