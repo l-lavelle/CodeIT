@@ -1,15 +1,16 @@
 import './App.css';
-import Landing from './components/Editor/Landing';
 
+import { Outlet } from 'react-router-dom';
 
 function App() {
 
 
  return (
     <div className="App">
-        <Landing />;
+        <Outlet />
      </div>
   )
 }
 
 export default App;
+
