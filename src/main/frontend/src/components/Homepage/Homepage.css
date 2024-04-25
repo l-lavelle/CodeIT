@@ -1,0 +1,20 @@
+h1{
+    font-size:2rem
+}
+.home-info-container{
+
+}
+.home-tech-container{
+    background-color:var(--gold);
+    border-radius: 25px;
+}
+.home-language-container{
+    background-color:#DBEDF3
+}
+.language-list{
+    list-style-type: circle;
+    text-align: left;
+}
+.home-skills-container{
+    background-color:var(--light-blue)
+}

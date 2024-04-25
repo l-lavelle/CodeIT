@@ -12,4 +12,5 @@ TODO: backend
 -password is validated but validation also runs when trying to hash? check before hash in controller??
 
 TODO: frontend
+- Sass install or use variables??
 -
