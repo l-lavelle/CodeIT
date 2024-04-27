@@ -20,16 +20,33 @@ async function asyncCall(){
 const elm = await waitForElm('#canvas');
 const canvas = document.querySelector("canvas");
 
-// const observer = new ResizeObserver((entries) => {
-//   canvas.width = canvas.clientWidth;
-//   canvas.height = canvas.clientHeight;
-// });
-// observer.observe(canvas)
 
 canvas.height = 800;
 canvas.width = window.innerWidth;
 
 const ctx = canvas.getContext("2d");
+
+initialize();
+
+function initialize() {
+    // Register an event listener to call the resizeCanvas() function
+    // each time the window is resized.
+    window.addEventListener('resize', resizeCanvas, false);
+    // Draw canvas border for the first time.
+    resizeCanvas();
+  }
+ function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    redraw();
+  }
+
+   function redraw() {
+      ctx.strokeStyle = '#F1B866';
+      ctx.lineWidth = '4';
+      ctx.strokeRect(0, 0, window.innerWidth, window.innerHeight);
+    }
+
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 ctx.fillStyle = "#F1B866";
 ctx.strokeStyle = "rgba(219, 237, 243, 1)";
@@ -172,31 +189,31 @@ setInterval(() => {
 }, 250);
 }
 
- var htmlCanvas = document.getElementById('canvas'),
-    // Obtain a graphics context on the canvas element for drawing.
-     context = htmlCanvas.getContext('2d');
-
-  // Start listening to resize events and draw canvas.
-  initialize();
-
-function initialize() {
-    // Register an event listener to call the resizeCanvas() function
-    // each time the window is resized.
-    window.addEventListener('resize', resizeCanvas, false);
-    // Draw canvas border for the first time.
-    resizeCanvas();
-  }
- function resizeCanvas() {
-    htmlCanvas.width = window.innerWidth;
-    htmlCanvas.height = window.innerHeight;
-    redraw();
-  }
-
-   function redraw() {
-      context.strokeStyle = 'blue';
-      context.lineWidth = '3';
-      context.strokeRect(0, 0, window.innerWidth, window.innerHeight);
-    }
+//  var htmlCanvas = document.getElementById('canvas'),
+//     // Obtain a graphics context on the canvas element for drawing.
+//      context = htmlCanvas.getContext('2d');
+//
+//   // Start listening to resize events and draw canvas.
+//   initialize();
+//
+// function initialize() {
+//     // Register an event listener to call the resizeCanvas() function
+//     // each time the window is resized.
+//     window.addEventListener('resize', resizeCanvas, false);
+//     // Draw canvas border for the first time.
+//     resizeCanvas();
+//   }
+//  function resizeCanvas() {
+//     htmlCanvas.width = window.innerWidth;
+//     htmlCanvas.height = window.innerHeight;
+//     redraw();
+//   }
+//
+//    function redraw() {
+//       context.strokeStyle = 'blue';
+//       context.lineWidth = '3';
+//       context.strokeRect(0, 0, window.innerWidth, window.innerHeight);
+//     }
 
 
 
