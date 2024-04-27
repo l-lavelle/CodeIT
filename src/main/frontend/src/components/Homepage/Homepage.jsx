@@ -19,10 +19,9 @@ asyncCall();
 async function asyncCall(){
 const elm = await waitForElm('#canvas');
 const canvas = document.querySelector("canvas");
-
-
-canvas.height = 800;
-canvas.width = window.innerWidth;
+const img = document.getElementById("overlay");
+// canvas.height = 200;
+// canvas.width = window.innerWidth;
 
 const ctx = canvas.getContext("2d");
 
@@ -37,7 +36,7 @@ function initialize() {
   }
  function resizeCanvas() {
     canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.height = img.height * 1.2;
     redraw();
   }
 
