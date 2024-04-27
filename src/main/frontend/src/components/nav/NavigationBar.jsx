@@ -7,14 +7,14 @@ import './NavigationBar.css'
 const NavigationBar = () => {
   return (
     <>
-     <Navbar expand="lg" className="mb-3">
+     <Navbar collapseOnSelect  expand="lg" className="mb-3">
           <Container>
             <Navbar.Brand  href="#home">CodeIT</Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
+            <Navbar.Toggle aria-controls="basic-navbar-nav" className="bg-white"/>
+            <Navbar.Collapse id="basic-navbar-nav" >
               <Nav className="ml-auto">
-                <Nav.Link href="#home">Login</Nav.Link>
-                <Nav.Link href="#link">Signup</Nav.Link>
+                <Nav.Link href="/">Login</Nav.Link>
+                <Nav.Link href="/Landing">Signup</Nav.Link>
                 <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                   <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                   <NavDropdown.Item href="#action/3.2">

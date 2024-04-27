@@ -1,0 +1,8 @@
+.footer-container{
+    height:100px;
+    background-color:var(--dark-blue);
+    border-top: 2px white solid;
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+}

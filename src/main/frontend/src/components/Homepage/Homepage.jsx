@@ -231,7 +231,7 @@ setInterval(() => {
     </div>
 
 {/*      Image sizes need to fix    */}
-<div className="home-info-container mt-3 pt-3">
+<div className="home-info-container mt-3 pt-3 pb-3">
     <Container className="mt-3 home-tech-container">
         <Row> <h2 className="mt-1 mb-1">Technologies</h2> </Row>
 
