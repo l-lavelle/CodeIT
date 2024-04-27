@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
 :root {
   --gold: #F1B866;
   --light-blue: #DBEDF3;
   --medium-blue: #404B69;
   --dark-blue: #283149;
   --white: #FFFFFF;
+  --outfit:outfit
 }

@@ -1,4 +1,4 @@
-//  Add icon to name
+//  Add icon to name, set up page link and chaning based on if logged in
 import React from "react";
 import {Container, Navbar, Nav, NavDropdown} from 'react-bootstrap';
 import '../../Variables.css'
@@ -9,7 +9,7 @@ const NavigationBar = () => {
     <>
      <Navbar collapseOnSelect  expand="lg" className="mb-3">
           <Container>
-            <Navbar.Brand  href="#home">CodeIT</Navbar.Brand>
+            <Navbar.Brand  href="/">CodeIT</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" className="bg-white"/>
             <Navbar.Collapse id="basic-navbar-nav" >
               <Nav className="ml-auto">
