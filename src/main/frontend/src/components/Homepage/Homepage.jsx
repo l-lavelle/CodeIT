@@ -1,6 +1,6 @@
 import './Homepage.css';
 import '../../Variables.css'
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import homePic from '../../assets/homePic.jpg';
 import Java from '../../assets/java.svg'
 import JavaScript from '../../assets/JS.png'
@@ -9,6 +9,17 @@ import SQL from '../../assets/SQL.png'
 import {Container, Row, Col} from 'react-bootstrap';
 
 const Homepage = () => {
+
+function debounce(fn, ms) {
+  let timer
+  return _ => {
+    clearTimeout(timer)
+    timer = setTimeout(_ => {
+      timer = null
+      fn.apply(this, arguments)
+    }, ms)
+  };
+}
 
 
     function ArrayPlusDelay(array, delegate, delay) {
@@ -48,15 +59,20 @@ function waitForElm(selector) {
     });
 }
 
+
+
 asyncCall();
 
 async function asyncCall(){
 const elm = await waitForElm('#canvas');
 // if (document.querySelector("canvas")){
-console.log('hlllllilo')
+
 const canvas = document.querySelector("canvas");
+
+// const imgHeight= document.getElementById("overlay-img");
+// console.log(imgHeight)
 canvas.height = 800;
-canvas.width = document.body.clientWidth;
+canvas.width = window.innerWidth;
 
 const ctx = canvas.getContext("2d");
 ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -206,13 +222,14 @@ setInterval(() => {
 
     <div className="overlay rounded-md overflow-hidden w-full h-full shadow-4xl">
     <h1 id="RotatingKeywords" >Build Expertise</h1>
-    <h4 >Test and expand your coding knowledge to master web development </h4>
+    <h4 className="mb-3">Test and expand your coding knowledge to master web development </h4>
 
-    <div id="trial-container" >
+    <div id="trial-container" className="pb-5">
        <canvas id="canvas"></canvas>
 {/*     <div id="trial"> </div> */}
-    <img id="overlay" className="mt-3 home-main-pic" src={homePic}/>
+    <img id="overlay"  className="mt-3 home-main-pic" src={homePic}/>
     </div>
+
 {/*      Image sizes need to fix    */}
 <div className="home-info-container mt-3 pt-3">
     <Container className="mt-3 home-tech-container">

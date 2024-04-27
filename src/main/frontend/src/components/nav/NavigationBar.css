@@ -1,0 +1,25 @@
+nav{
+    background-color:var(--dark-blue);
+}
+a.navbar-brand{
+    color:var(--white);
+}
+a.navbar-brand:hover{
+    color:var(--gold);
+}
+
+a.nav-link{
+    color:var(--white);
+}
+a.nav-link:hover{
+    color:var(--gold);
+}
+a.nav-link active{
+    color:var(--gold);
+}
+div.nav-item-dropdown{
+    color:var(--white);
+}
+div.nav-item-dropdown:after{
+    color:var(--gold);
+}
