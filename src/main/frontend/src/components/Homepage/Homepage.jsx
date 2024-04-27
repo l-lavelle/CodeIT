@@ -7,70 +7,25 @@ import JavaScript from '../../assets/JS.png'
 import Python from '../../assets/Python.svg'
 import SQL from '../../assets/SQL.png'
 import {Container, Row, Col} from 'react-bootstrap';
+import {ArrayPlusDelay, waitForElm} from './HomeFunctions.js';
 
 const Homepage = () => {
 
-function debounce(fn, ms) {
-  let timer
-  return _ => {
-    clearTimeout(timer)
-    timer = setTimeout(_ => {
-      timer = null
-      fn.apply(this, arguments)
-    }, ms)
-  };
-}
 
-
-    function ArrayPlusDelay(array, delegate, delay) {
-
-      var i = 0
-
-      var interval = setInterval(function() {
-          delegate(array[i]);
-
-          if (i++ >= array.length - 1)
-              clearInterval(interval);
-        // loop would be i=0
-      }, delay)
-      return interval
-    }
-
-    ArrayPlusDelay(['Gain Confidence','Expand Your Skills','z'], function(obj) {document.getElementById("RotatingKeywords").textContent=(obj)},5000)
-
-function waitForElm(selector) {
-    return new Promise(resolve => {
-        if (document.querySelector(selector)) {
-            return resolve(document.querySelector(selector));
-        }
-
-        const observer = new MutationObserver(mutations => {
-            if (document.querySelector(selector)) {
-                observer.disconnect();
-                resolve(document.querySelector(selector));
-            }
-        });
-
-        // If you get "parameter 1 is not of type 'Node'" error, see https://stackoverflow.com/a/77855838/492336
-        observer.observe(document.body, {
-            childList: true,
-            subtree: true
-        });
-    });
-}
-
-
+ArrayPlusDelay(['Gain Confidence','Expand Your Skills'], function(obj) {document.getElementById("RotatingKeywords").textContent=(obj)},5000)
 
 asyncCall();
 
 async function asyncCall(){
 const elm = await waitForElm('#canvas');
-// if (document.querySelector("canvas")){
-
 const canvas = document.querySelector("canvas");
 
-// const imgHeight= document.getElementById("overlay-img");
-// console.log(imgHeight)
+// const observer = new ResizeObserver((entries) => {
+//   canvas.width = canvas.clientWidth;
+//   canvas.height = canvas.clientHeight;
+// });
+// observer.observe(canvas)
+
 canvas.height = 800;
 canvas.width = window.innerWidth;
 
@@ -217,6 +172,36 @@ setInterval(() => {
 }, 250);
 }
 
+ var htmlCanvas = document.getElementById('canvas'),
+    // Obtain a graphics context on the canvas element for drawing.
+     context = htmlCanvas.getContext('2d');
+
+  // Start listening to resize events and draw canvas.
+  initialize();
+
+function initialize() {
+    // Register an event listener to call the resizeCanvas() function
+    // each time the window is resized.
+    window.addEventListener('resize', resizeCanvas, false);
+    // Draw canvas border for the first time.
+    resizeCanvas();
+  }
+ function resizeCanvas() {
+    htmlCanvas.width = window.innerWidth;
+    htmlCanvas.height = window.innerHeight;
+    redraw();
+  }
+
+   function redraw() {
+      context.strokeStyle = 'blue';
+      context.lineWidth = '3';
+      context.strokeRect(0, 0, window.innerWidth, window.innerHeight);
+    }
+
+
+
+
+
 
   return (
 
@@ -232,6 +217,7 @@ setInterval(() => {
 
 {/*      Image sizes need to fix    */}
 <div className="home-info-container mt-3 pt-3 pb-3">
+<div className="item">
     <Container className="mt-3 home-tech-container">
         <Row> <h2 className="mt-1 mb-1">Technologies</h2> </Row>
 
@@ -243,6 +229,7 @@ setInterval(() => {
         </Row>
 
     </Container>
+    </div>
     <Container className="mt-3 home-language-container">
         <Row>
            <Col> <h2>Language Pics</h2> </Col>

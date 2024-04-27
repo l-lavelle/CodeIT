@@ -1,5 +1,6 @@
 h1{
-    font-size:2rem
+    font-size:3em;
+    font-family: roboto;
 }
 
 #trial-container{
@@ -20,6 +21,7 @@ h1{
     background-color:var(--medium-blue);
 
 }
+
 .home-tech-container{
     background-color:var(--gold);
     border-radius: 25px;
