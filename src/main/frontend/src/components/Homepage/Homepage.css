@@ -59,6 +59,26 @@ p{
 .tech-name{
     font-size: 1.2em;
     font-weight:bold;
+    position:relative;
+    text-align:center;
+}
+.overlay-tech-lang {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: var(--gold);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.overlay-tech-lang:hover {
+  opacity: 1;
 }
 
 
@@ -87,6 +107,17 @@ p{
 }
 
 
+
+@media screen and (max-width: 380px) {
+   .overlay-tech-lang p {
+   font-size:15px;
+   }
+}
+@media screen and (min-width: 576px) and (max-width:745px){
+   .overlay-tech-lang p {
+   font-size:15px;
+   }
+}
 @media screen and (min-width: 1000px) {
   #above-img {
     width:737px;

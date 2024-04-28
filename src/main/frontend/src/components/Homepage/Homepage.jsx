@@ -1,5 +1,4 @@
 // Sometimes inital page load first paint not perfect is there a way to keep static version until other is loaded?
-// On hover over tech give little background and grey out background
 import './Homepage.css';
 import '../../Variables.css'
 import React, { useState, useEffect } from "react";
@@ -27,7 +26,7 @@ asyncCall();
 
     <div className="overlay rounded-md overflow-hidden w-full h-full shadow-4xl">
     <h1 id="RotatingKeywords" >Build Expertise</h1>
-    <h4 className="mb-3">Test and expand your coding knowledge to master web development </h4>
+    <h4 className="mb-3">Test And Expand Your Coding Knowledge To Master Web Development </h4>
 
     <div id="canvas-container" className="pb-5">
        <canvas id="canvas"></canvas>
@@ -36,17 +35,42 @@ asyncCall();
 
     <div className="tech-border mx-3 mb-3">
         <div className=" home-tech-container">
-            <Row> <h2 className="mt-2 mb-2">Technologies</h2> </Row>
+            <Row> <h2 className="mt-2 mb-2">Tech Stack</h2> </Row>
 
             <Row className="mx-1">
-               <Col xs={6} sm={3} className="mb-3 tech-name"><img className="tech-img" src={Java}/>Java</Col>
-               <Col xs={6} sm={3} className="mb-3 tech-name"><img className="tech-img" src={JavaScript}/>JavaScript</Col>
-               <Col xs={6} sm={3} className="mb-3 tech-name"><img className="tech-img" src={Python}/>Python</Col>
-               <Col xs={6} sm={3} className="mb-3 tech-name"><img className="tech-img" src={SQL}/>SQL</Col>
+               <Col xs={6} sm={3} className="mb-3 tech-name">
+               <img className="tech-img" src={Java}/>
+               <div class="overlay-tech-lang px-1">
+                   <p>Object-Oriented Programming Language</p>
+               </div>
+               Java
+               </Col>
+               <Col xs={6} sm={3} className="mb-3 tech-name">
+               <img className="tech-img" src={JavaScript}/>
+               <div class="overlay-tech-lang px-1">
+                   <p>Scripting Language for Creating Dynamic Web Page Content</p>
+               </div>
+               JavaScript
+               </Col>
+               <Col xs={6} sm={3} className="mb-3 tech-name">
+               <img className="tech-img" src={Python}/>
+               <div class="overlay-tech-lang px-1">
+                  <p>General Purpose Language for Web Applications and Software</p>
+               </div>
+               Python
+               </Col>
+               <Col xs={6} sm={3} className="mb-3 tech-name">
+               <img className="tech-img" src={SQL}/>
+               <div class="overlay-tech-lang px-1">
+                   <p>Standard Language for Database Creation and Manipulation</p>
+               </div>
+               SQL
+               </Col>
             </Row>
-
         </div>
     </div>
+
+
 
 
 
