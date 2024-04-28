@@ -1,222 +1,26 @@
+// Sometimes inital page load first paint not perfect is there a way to keep static version until other is loaded?
+// On hover over tech give little background and grey out background
 import './Homepage.css';
 import '../../Variables.css'
 import React, { useState, useEffect } from "react";
 import homePic from '../../assets/homePic.jpg';
-import Java from '../../assets/java.svg'
-import JavaScript from '../../assets/JS.png'
-import Python from '../../assets/Python.svg'
-import SQL from '../../assets/SQL.png'
+import Java from '../../assets/e-java.png'
+import JavaScript from '../../assets/e-JS.png'
+import Python from '../../assets/e-python.png'
+import SQL from '../../assets/e-SQL.png'
 import {Container, Row, Col} from 'react-bootstrap';
-import {ArrayPlusDelay, waitForElm} from './HomeFunctions.js';
+import {ArrayPlusDelay} from './HomeFunctions.js';
+import {asyncCall} from './CanvasDrawing.js';
 
 const Homepage = () => {
 
-
 ArrayPlusDelay(['Gain Confidence','Expand Your Skills'], function(obj) {document.getElementById("RotatingKeywords").textContent=(obj)},5000)
 
+setTimeout(() => {
+  asyncCall();
+}, "1");
+
 asyncCall();
-
-async function asyncCall(){
-const elm = await waitForElm('#canvas');
-const canvas = document.querySelector("canvas");
-const img = document.getElementById("overlay");
-// canvas.height = 200;
-// canvas.width = window.innerWidth;
-
-const ctx = canvas.getContext("2d");
-
-initialize();
-
-function initialize() {
-    // Register an event listener to call the resizeCanvas() function
-    // each time the window is resized.
-    window.addEventListener('resize', resizeCanvas, false);
-    // Draw canvas border for the first time.
-    resizeCanvas();
-  }
- function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = img.height * 1.2;
-    redraw();
-  }
-
-   function redraw() {
-      ctx.strokeStyle = '#F1B866';
-      ctx.lineWidth = '4';
-      ctx.strokeRect(0, 0, window.innerWidth, window.innerHeight);
-    }
-
-ctx.fillRect(0, 0, canvas.width, canvas.height);
-ctx.fillStyle = "#F1B866";
-ctx.strokeStyle = "rgba(219, 237, 243, 1)";
-
-const particles = [];
-
-function getDist(x1, y1, x2, y2) {
-  return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-}
-
-function init() {
-  for (let i = 0; i < 100; i += 1) {
-    const x = Math.floor(Math.random() * canvas.width);
-    const y = Math.floor(Math.random() * canvas.height);
-    const speedX = Math.random();
-    const speedY = Math.random();
-    const dirX = Math.random() > 0.5 ? 1 : -1;
-    const dirY = Math.random() > 0.5 ? 1 : -1;
-
-    particles.push({
-      x,
-      y,
-      speedX: dirX * speedX,
-      speedY: dirY * speedY,
-      neighbors: [],
-    });
-  }
-  requestAnimationFrame(draw);
-}
-
-let mouseX;
-let mouseY;
-
-function draw() {
-  ctx.fillStyle = "rgba(255,255,255,.3)";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "#F1B866";
-
-  for (let i = 0; i < particles.length; i += 1) {
-    let x = particles[i].x + particles[i].speedX;
-    let y = particles[i].y + particles[i].speedY;
-    if (x < 0 || x > canvas.width || y < 0 || y > canvas.height) {
-      x = Math.floor(Math.random() * canvas.width);
-      y = Math.floor(Math.random() * canvas.height);
-    }
-
-    const x1 = mouseX || 2000;
-    const y1 = mouseY || 2000;
-    const dist = getDist(x, y, x1, y1);
-    if (dist < 200) {
-      if (x < x1) {
-        x -= 2;
-      } else {
-        x += 2;
-      }
-      if (y < y1) {
-        y -= 2;
-      } else {
-        y += 2;
-      }
-    }
-
-    ctx.moveTo(x, y);
-    ctx.arc(x, y, 2, 0, Math.PI * 2);
-    particles[i].x = x;
-    particles[i].y = y;
-  }
-  ctx.fill();
-
-  for (let i = 0; i < particles.length; i += 1) {
-    const x = particles[i].x;
-    const y = particles[i].y;
-    const neighbors = particles[i].neighbors;
-    for (let j = 0; j < neighbors.length; j += 1) {
-      const x1 = neighbors[j].x;
-      const y1 = neighbors[j].y;
-      const dist = getDist(x, y, x1, y1);
-      if (dist < 100) {
-        ctx.beginPath();
-        ctx.moveTo(x, y);
-        ctx.lineTo(x1, y1);
-        ctx.stroke();
-      }
-    }
-  }
-  requestAnimationFrame(draw);
-}
-
-init();
-
-canvas.addEventListener("mousemove", (e) => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-  setTimeout(() => {
-    if (mouseX === e.clientX && mouseY === e.clientY) {
-      for (let i = 0; i < particles.length; i += 1) {
-        let x = particles[i].x;
-        let y = particles[i].y;
-        const x1 = e.clientX;
-        const y1 = e.clientY;
-        const dist = getDist(x, y, x1, y1);
-
-        if (dist < 200) {
-          if (x < x1) {
-            x -= 2;
-          } else {
-            x += 2;
-          }
-          if (y < y1) {
-            y -= 2;
-          } else {
-            y += 2;
-          }
-        }
-        particles[i].x = x;
-        particles[i].y = y;
-      }
-    }
-  }, 10);
-});
-
-setInterval(() => {
-  const copy = [...particles];
-  for (let i = 0; i < particles.length; i += 1) {
-    const x = particles[i].x;
-    const y = particles[i].y;
-
-    copy.sort((a, b) => {
-      const x1 = a.x;
-      const x2 = b.x;
-      const y1 = a.y;
-      const y2 = b.y;
-      const dist1 = getDist(x, y, x1, y1);
-      const dist2 = getDist(x, y, x2, y2);
-      return dist1 - dist2;
-    });
-
-    particles[i].neighbors = copy.slice(0, 10);
-  }
-}, 250);
-}
-
-//  var htmlCanvas = document.getElementById('canvas'),
-//     // Obtain a graphics context on the canvas element for drawing.
-//      context = htmlCanvas.getContext('2d');
-//
-//   // Start listening to resize events and draw canvas.
-//   initialize();
-//
-// function initialize() {
-//     // Register an event listener to call the resizeCanvas() function
-//     // each time the window is resized.
-//     window.addEventListener('resize', resizeCanvas, false);
-//     // Draw canvas border for the first time.
-//     resizeCanvas();
-//   }
-//  function resizeCanvas() {
-//     htmlCanvas.width = window.innerWidth;
-//     htmlCanvas.height = window.innerHeight;
-//     redraw();
-//   }
-//
-//    function redraw() {
-//       context.strokeStyle = 'blue';
-//       context.lineWidth = '3';
-//       context.strokeRect(0, 0, window.innerWidth, window.innerHeight);
-//     }
-
-
-
-
 
 
   return (
@@ -225,54 +29,55 @@ setInterval(() => {
     <h1 id="RotatingKeywords" >Build Expertise</h1>
     <h4 className="mb-3">Test and expand your coding knowledge to master web development </h4>
 
-    <div id="trial-container" className="pb-5">
+    <div id="canvas-container" className="pb-5">
        <canvas id="canvas"></canvas>
-{/*     <div id="trial"> </div> */}
-    <img id="overlay"  className="mt-3 home-main-pic" src={homePic}/>
+       <img id="above-img"  className="mt-3" src={homePic}/>
     </div>
 
-{/*      Image sizes need to fix    */}
-<div className="home-info-container mt-3 pt-3 pb-3">
-<div className="item">
-    <Container className="mt-3 home-tech-container">
-        <Row> <h2 className="mt-1 mb-1">Technologies</h2> </Row>
+    <div className="tech-border mx-3 mb-3">
+        <div className=" home-tech-container">
+            <Row> <h2 className="mt-2 mb-2">Technologies</h2> </Row>
 
-        <Row>
-           <Col xs={6} md={3}><img className="tech-img" src={Java}/>Java</Col>
-           <Col xs={6} md={3}><img className="tech-img" src={JavaScript}/>JavaScript</Col>
-           <Col xs={6} md={3}><img className="tech-img" src={Python}/>Python</Col>
-           <Col xs={6} md={3}><img className="tech-img" src={SQL}/>SQL</Col>
-        </Row>
+            <Row className="mx-1">
+               <Col xs={6} sm={3} className="mb-3 tech-name"><img className="tech-img" src={Java}/>Java</Col>
+               <Col xs={6} sm={3} className="mb-3 tech-name"><img className="tech-img" src={JavaScript}/>JavaScript</Col>
+               <Col xs={6} sm={3} className="mb-3 tech-name"><img className="tech-img" src={Python}/>Python</Col>
+               <Col xs={6} sm={3} className="mb-3 tech-name"><img className="tech-img" src={SQL}/>SQL</Col>
+            </Row>
 
-    </Container>
+        </div>
     </div>
-    <Container className="mt-3 home-language-container">
-        <Row>
-           <Col> <h2>Language Pics</h2> </Col>
-           <Col>
-           <Row>
-           Learn New Languages
-           </Row>
-           <Row ><ul className="language-list"><li>sdf</li><li>asdf</li></ul></Row>
-           </Col>
-        </Row>
-    </Container>
-     <Container className="mt-3 home-skills-container">
+
+
+
+  <div className="home-info-container pt-3 pb-3">
+        <Container className="mt-3 home-language-container">
             <Row>
-             <Col>
+               <Col> <h2>Language Pics</h2> </Col>
+               <Col>
                <Row>
                Learn New Languages
                </Row>
                <Row ><ul className="language-list"><li>sdf</li><li>asdf</li></ul></Row>
                </Col>
-                <Col> <h2>Challenge Your Skills</h2> </Col>
-
             </Row>
         </Container>
-    <div></div>
-    </div>
+         <Container className="mt-3 home-skills-container">
+                <Row>
+                 <Col>
+                   <Row>
+                   Learn New Languages
+                   </Row>
+                   <Row ><ul className="language-list"><li>sdf</li><li>asdf</li></ul></Row>
+                   </Col>
+                    <Col> <h2>Challenge Your Skills</h2> </Col>
 
-{/*    <canvas></canvas> */}
+                </Row>
+            </Container>
+        <div></div>
+      </div>
+
+
     </div>
   );
 };
