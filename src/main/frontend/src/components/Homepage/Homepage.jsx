@@ -24,7 +24,7 @@ asyncCall();
 
   return (
 
-    <div className="overlay rounded-md overflow-hidden w-full h-full shadow-4xl">
+    <div className="overlay overflow-hidden w-full h-full shadow-4xl">
     <h1 id="RotatingKeywords" >Build Expertise</h1>
     <h4 className="mb-3">Test And Expand Your Coding Knowledge To Master Web Development </h4>
 
@@ -91,7 +91,7 @@ asyncCall();
                </Col>
             </Row>
         </div>
-         <div className="mt-3 mx-3 p-2 home-skills-container">
+         <div className="mt-3 mx-3 p-2 mb-3 home-skills-container">
             <Row>
              <Col xs={12} md={6}>
                <Row className="skills-list-container">
