@@ -71,9 +71,7 @@ asyncCall();
     </div>
 
 
-
-
-
+{/*  Insert Content  */}
   <div className="home-info-container pt-3 pb-3">
         <div className="mt-3 mx-3 p-2 home-language-container">
             <Row className="language-reverse">

@@ -1,17 +1,16 @@
-
 import React from "react";
 import '../../Variables.css'
 import './Footer.css'
 
 const Footer = () => {
   return (
-    <div className="footer-container">
+    <div className="footer-container ps-3 pe-5">
     <div>
-    <p>© 2024 CodeIT. All rights reserved.</p>
+        <p id="rights">© 2024 CodeIT. All rights reserved.</p>
     </div>
-    <div>
-    <a>About</a>
-    <a>Contact Us</a>
+    <div className="footer-links">
+        <a className="footer-link">About</a>
+        <a className="footer-link">Contact Us</a>
     </div>
     </div>
   );
