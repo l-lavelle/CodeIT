@@ -82,21 +82,22 @@ p{
 }
 
 
-
-
 .home-language-container{
-    background-color:#DBEDF3;
+    background-color:var(--light-blue);
     border-radius: 25px;
 }
-.language-list{
-    list-style-type: circle;
-    text-align: left;
-
+.language-list-container,
+.skills-list-container {
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 .home-skills-container{
     background-color:var(--light-blue);
     border-radius: 25px;
 }
+
+
 .background {
   position: absolute;
   top: 0;
@@ -111,6 +112,12 @@ p{
 @media screen and (max-width: 380px) {
    .overlay-tech-lang p {
    font-size:15px;
+   }
+}
+@media screen and (max-width: 767px) {
+   .language-reverse {
+     display:flex;
+     flex-direction: column-reverse;
    }
 }
 @media screen and (min-width: 576px) and (max-width:745px){

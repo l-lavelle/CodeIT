@@ -75,33 +75,38 @@ asyncCall();
 
 
   <div className="home-info-container pt-3 pb-3">
-        <Container className="mt-3 home-language-container">
-            <Row>
-               <Col> <h2>Language Pics</h2> </Col>
-               <Col>
+        <div className="mt-3 mx-3 p-2 home-language-container">
+            <Row className="language-reverse">
+               <Col xs={12} md={6}>
+                  <h2>Picture</h2>
+               </Col>
+               <Col xs={12} md={6}>
                <Row>
-               Learn New Languages
+               <h2 className="text-center">Learn New Languages</h2>
+               </Row>
+               <Row className="language-list-container">
+                <ul className="language-list">
+                    <li>sdf</li>
+                    <li>asdf</li>
+                </ul>
+               </Row>
+               </Col>
+            </Row>
+        </div>
+         <div className="mt-3 mx-3 p-2 home-skills-container">
+            <Row>
+             <Col xs={12} md={6}>
+               <Row className="skills-list-container">
+               <h2 className="text-center">Challenge Skills</h2>
                </Row>
                <Row ><ul className="language-list"><li>sdf</li><li>asdf</li></ul></Row>
                </Col>
+               <Col xs={12} md={6}>
+                 <h2>Picture</h2>
+               </Col>
             </Row>
-        </Container>
-         <Container className="mt-3 home-skills-container">
-                <Row>
-                 <Col>
-                   <Row>
-                   Learn New Languages
-                   </Row>
-                   <Row ><ul className="language-list"><li>sdf</li><li>asdf</li></ul></Row>
-                   </Col>
-                    <Col> <h2>Challenge Your Skills</h2> </Col>
-
-                </Row>
-            </Container>
-        <div></div>
+         </div>
       </div>
-
-
     </div>
   );
 };
