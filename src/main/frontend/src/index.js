@@ -6,7 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Landing from './components/Editor/Landing';
 import Homepage from './components/Homepage/Homepage'
-
+import About from './components/About/About';
+import Contact from './components/Contact/Contact';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,14 @@ const router = createBrowserRouter([
         path: '/Landing',
         element: <Landing />,
       },
+      {
+         path: '/About',
+         element: <About />,
+      },
+      {
+        path:'Contact',
+        element:<Contact />
+      }
     ],
   },
 ]);

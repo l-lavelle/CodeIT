@@ -9,9 +9,11 @@ function App() {
 
  return (
     <div className="App">
+    <div className="content">
         <NavigationBar/>
         <Outlet />
-        <Footer/>
+    </div>
+        <Footer />
      </div>
   )
 }
