@@ -5,11 +5,15 @@ import circuitBoard from '../../assets/bg.jpg';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+import  { useState } from 'react';
+
 const Contact = () => {
   return (
     <div className="contact-container-wrapper">
-    <img src={circuitBoard} className="contact-top-container"/>
-    <div className="contact-container">
+    <div className="contact-top-container"></div>
+    <div className="contact-container p-4">
         <h2>Contact Us</h2>
         <Form>
               <Form.Group className="mb-3" controlId="formBasicEmail">
