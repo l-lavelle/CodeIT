@@ -7,7 +7,7 @@ import './NavigationBar.css'
 const NavigationBar = () => {
   return (
     <>
-     <Navbar collapseOnSelect  expand="lg" className="mb-3">
+     <Navbar collapseOnSelect  expand="lg">
           <Container>
             <Navbar.Brand  href="/">CodeIT</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" className="bg-white"/>

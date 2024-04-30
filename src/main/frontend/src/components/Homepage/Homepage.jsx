@@ -7,7 +7,7 @@ import Java from '../../assets/e-java.png'
 import JavaScript from '../../assets/e-JS.png'
 import Python from '../../assets/e-python.png'
 import SQL from '../../assets/e-SQL.png'
-import {Container, Row, Col} from 'react-bootstrap';
+import {Row, Col} from 'react-bootstrap';
 import {ArrayPlusDelay} from './HomeFunctions.js';
 import {asyncCall} from './CanvasDrawing.js';
 
@@ -24,7 +24,7 @@ asyncCall();
 
   return (
 
-    <div className="overlay overflow-hidden w-full h-full shadow-4xl">
+    <div className="overlay overflow-hidden w-full h-full shadow-4xl mt-3">
     <h1 id="RotatingKeywords" >Build Expertise</h1>
     <h4 className="mb-3">Test And Expand Your Coding Knowledge To Master Web Development </h4>
 
