@@ -11,8 +11,8 @@ import {Row, Col} from 'react-bootstrap';
 
 const About = () => {
   return (
-    <div className="about-container ps-3 pe-3 mt-3">
-    <div className="d-flex justify-content-center about-wrapper">
+    <div className="about-container ps-3 pe-3 pt-3">
+    <div className="d-flex justify-content-center  about-wrapper">
         <div className="about-info mx-3 px-2 pb-2 pt-2 mb-3">
             <div className="about-title">
             <h2 lg={4}><span id="spaceBreak">About </span><span >CodeIT</span></h2>
@@ -27,8 +27,8 @@ const About = () => {
         <Col md={5} lg={5} xl={4}>
             <img id="lo-pic" src={laurenPic}/>
         </Col>
-        <Col md={6} className="lo-info">
-            <h4>Meet the Dev</h4>
+        <Col md={6} className="lo-info pt-2 pb-2">
+            <h4 >Meet the Dev</h4>
             <p>Hi, Nice to Meet You! orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
         </Col>
     </Row>

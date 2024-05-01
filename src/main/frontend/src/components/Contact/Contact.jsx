@@ -38,25 +38,25 @@ const Contact = () => {
     <div className="contact-container-wrapper">
     <div className="contact-top-container"></div>
     <div className="contact-container p-4">
-        <h2>Contact Us</h2>
+        <h2 className="mb-3">Contact Us</h2>
         <Form ref={form} onSubmit={sendEmail}>
-              <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Name</Form.Label>
+              <Form.Group className="mb-3 text-left contact-group" controlId="formBasicEmail">
+                <Form.Label >Name</Form.Label>
                 <Form.Control type="text"  onChange={updateData} value={emailData.from_name} name="from_name"/>
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Group className="mb-3 text-left contact-group" controlId="formBasicPassword">
                 <Form.Label>Email Address</Form.Label>
                 <Form.Control type="email"  onChange={updateData} value={emailData.from_email} name="from_email"/>
               </Form.Group>
 
-               <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                  <Form.Label>Message</Form.Label>
+               <Form.Group className="mb-3 text-left contact-group" controlId="exampleForm.ControlTextarea1">
+                  <Form.Label >Message</Form.Label>
                   <Form.Control as="textarea" rows={8}  onChange={updateData} value={emailData.message} name="message"/>
                 </Form.Group>
 
-              <Button variant="primary" type="submit">
-                Submit
+              <Button class="button-ct" variant="primary" type="submit">
+                Send
               </Button>
             </Form>
 
