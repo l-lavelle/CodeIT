@@ -12,9 +12,10 @@ TODO: backend
 -password is validated but validation also runs when trying to hash? check before hash in controller??
 
 TODO: frontend
-- Sass install or use variables??
 -https://stackoverflow.com/questions/1664785/resize-html5-canvas-to-fit-window
 https://codepen.io/GrahamTheDev/pen/bGKKOzB
+- Footer little higher
+- Homepage load in img/ and clean up particles
 
 to use:
 - Particles on homepage: https://levelup.gitconnected.com/create-your-own-particles-js-9fc8b719548a
