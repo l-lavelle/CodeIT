@@ -1,3 +1,4 @@
+import "./Landing.css"
 import React, { useEffect, useState } from "react";
 import CodeEditorWindow from "./CodeEditorWindow";
 import axios from "axios";

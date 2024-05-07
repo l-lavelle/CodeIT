@@ -1,3 +1,4 @@
+// If on large screen background doesnt hit bottom
 import '../../Variables.css'
 import './Contact.css'
 import circuitBoard from '../../assets/bg.jpg';
