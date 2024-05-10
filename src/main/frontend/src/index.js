@@ -9,6 +9,7 @@ import Homepage from './components/Homepage/Homepage'
 import About from './components/About/About';
 import Contact from './components/Contact/Contact';
 import Login from './components/Login/Login';
+import QuestionsHomepage from './components/QuestionsHomepage/QuestionsHomepage';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path:'Login',
         element:<Login />
+      },
+      {
+        path:'QuestionsHomepage',
+        element:<QuestionsHomepage />
       }
     ],
   },

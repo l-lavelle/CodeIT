@@ -1,3 +1,6 @@
+//Sapce for error message
+//Input validation
+
 import React, { useState } from "react";
 import '../../Variables.css'
 import './Login.css'
